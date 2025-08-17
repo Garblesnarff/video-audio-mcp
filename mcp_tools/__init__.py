@@ -35,6 +35,20 @@ from .overlays.add_subtitles import add_subtitles
 from .overlays.add_text_overlay import add_text_overlay
 from .overlays.add_image_overlay import add_image_overlay
 
+# New video effects
+from .video_effects.apply_video_filters import apply_video_filters
+from .video_effects.advanced_transitions import apply_advanced_transitions
+from .video_effects.motion_graphics import create_motion_graphics
+from .video_effects.chroma_key import apply_chroma_key, create_virtual_background, advanced_chroma_key_with_lighting
+from .video_effects.video_morphing import apply_video_morphing, create_shape_morph
+
+# New audio effects
+from .audio_effects.apply_audio_effects import apply_audio_effects, create_audio_chain
+from .audio_effects.multitrack_mixing import mix_audio_tracks, create_audio_bed, create_stereo_mix, create_surround_mix, mix_with_timeline
+from .audio_effects.audio_visualization import create_audio_visualization, create_lyric_visualization, create_music_video_template
+from .audio_effects.voice_processing import process_voice, batch_voice_process
+from .audio_effects.spatial_audio import create_spatial_audio, create_3d_audio_scene, convert_to_spatial_format
+
 ALL_TOOLS = [
     extract_audio_from_video,
     convert_audio_properties,
@@ -68,4 +82,29 @@ ALL_TOOLS = [
     add_subtitles,
     add_text_overlay,
     add_image_overlay,
+    # New video effects
+    apply_video_filters,
+    apply_advanced_transitions,
+    create_motion_graphics,
+    apply_chroma_key,
+    create_virtual_background,
+    advanced_chroma_key_with_lighting,
+    apply_video_morphing,
+    create_shape_morph,
+    # New audio effects
+    apply_audio_effects,
+    create_audio_chain,
+    mix_audio_tracks,
+    create_audio_bed,
+    create_stereo_mix,
+    create_surround_mix,
+    mix_with_timeline,
+    create_audio_visualization,
+    create_lyric_visualization,
+    create_music_video_template,
+    process_voice,
+    batch_voice_process,
+    create_spatial_audio,
+    create_3d_audio_scene,
+    convert_to_spatial_format,
 ]

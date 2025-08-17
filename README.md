@@ -57,6 +57,39 @@ A comprehensive Model Context Protocol (MCP) server that provides powerful video
 - `remove_silence` - Automatically remove silent segments
 - `health_check` - Verify server status
 
+### 🎨 Enhanced Video Effects (NEW!)
+- `apply_video_filters` - Advanced visual filters (blur, sharpen, vintage, sepia, black/white, grain, glow, etc.)
+- `apply_advanced_transitions` - Professional transition effects (slide, wipe, zoom, circle, polygon, spin, cube, page turn)
+- `create_motion_graphics` - Animated text, geometric shapes, particles, counters, and more
+- `apply_chroma_key` - Green screen/chroma key with advanced lighting and edge softening
+- `create_virtual_background` - Virtual backgrounds with blur, color shift, and artistic effects
+- `advanced_chroma_key_with_lighting` - Professional chroma key with automatic lighting adjustment
+- `apply_video_morphing` - Smooth morphing transitions (liquid, spiral, twist, ripple, etc.)
+- `create_shape_morph` - Animated shape morphing overlays
+
+### 🎵 Enhanced Audio Effects (NEW!)
+- `apply_audio_effects` - Professional audio effects (reverb, echo, chorus, distortion, pitch shift, etc.)
+- `create_audio_chain` - Chain multiple audio effects in sequence
+- `mix_audio_tracks` - Multi-track audio mixing with individual controls
+- `create_audio_bed` - Background music with vocal tracks and ducking
+- `create_stereo_mix` - Advanced stereo mixing with balance and crossfeed
+- `create_surround_mix` - 5.1/7.1 surround sound mixing
+- `mix_with_timeline` - Precise timeline-based audio mixing
+
+### 📊 Audio Visualization (NEW!)
+- `create_audio_visualization` - Spectrum, waveform, oscilloscope, bars, particles, tunnel, mandala effects
+- `create_lyric_visualization` - Lyric videos with audio-reactive backgrounds
+- `create_music_video_template` - Professional music video templates with synchronized visuals
+
+### 🎤 Voice Processing (NEW!)
+- `process_voice` - Advanced voice processing (noise reduction, enhancement, auto-tune, formant shift)
+- `batch_voice_process` - Batch process multiple voice files with effect chains
+
+### 🔊 Spatial Audio (NEW!)
+- `create_spatial_audio` - Immersive 3D audio (binaural, surround, ambisonics)
+- `create_3d_audio_scene` - Complex 3D audio scenes with multiple positioned sources
+- `convert_to_spatial_format` - Convert between spatial audio formats
+
 ## 🚀 Quick Start
 
 ### Prerequisites (local installation)
@@ -228,6 +261,57 @@ For easier distribution, you can also run via npx if packaged:
 
 "Add subtitles to this video with custom styling"
 → Uses: add_subtitles
+```
+
+### 🎨 Enhanced Video Effects Examples
+
+```
+"Apply a vintage film look with grain and sepia tones"
+→ Uses: apply_video_filters with vintage effect
+
+"Create a smooth liquid transition between these video clips"
+→ Uses: apply_video_morphing with liquid effect
+
+"Add animated text that types on screen with a bouncing effect"
+→ Uses: create_motion_graphics with animated text
+
+"Remove the green screen and replace with this background video"
+→ Uses: apply_chroma_key with advanced lighting
+
+"Create a 3D cube transition between clips"
+→ Uses: apply_advanced_transitions with cube effect
+```
+
+### 🎵 Enhanced Audio Effects Examples
+
+```
+"Add reverb and echo to make the voice sound spacious"
+→ Uses: apply_audio_effects with reverb/echo chain
+
+"Mix 4 audio tracks with individual volume and panning controls"
+→ Uses: mix_audio_tracks with custom settings
+
+"Create a podcast intro with background music that ducks when I speak"
+→ Uses: create_audio_bed with ducking enabled
+
+"Make my voice sound like a robot"
+→ Uses: process_voice with robot effect
+
+"Create a 3D audio scene with sounds positioned around the listener"
+→ Uses: create_3d_audio_scene with positioned sources
+```
+
+### 📊 Audio Visualization Examples
+
+```
+"Create a music video with spectrum analyzer visualization"
+→ Uses: create_audio_visualization with spectrum type
+
+"Generate a lyric video with particle background effects"
+→ Uses: create_lyric_visualization with particles
+
+"Make a podcast visualization with animated waveforms"
+→ Uses: create_audio_visualization with waveform type
 ```
 
 ### Professional Workflows
