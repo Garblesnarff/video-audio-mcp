@@ -49,6 +49,39 @@ from .audio_effects.audio_visualization import create_audio_visualization, creat
 from .audio_effects.voice_processing import process_voice, batch_voice_process
 from .audio_effects.spatial_audio import create_spatial_audio, create_3d_audio_scene, convert_to_spatial_format
 
+# Phase 2A: Video manipulation
+from .video_manipulation.rotate_flip_video import rotate_video, flip_mirror_video, rotate_and_flip_video, auto_rotate_video
+from .video_manipulation.picture_in_picture import create_picture_in_picture, create_multi_pip, create_animated_pip
+
+# Phase 2A: Frame manipulation
+from .frame_manipulation.extract_frames import extract_frames, extract_frame_at_time, extract_frames_batch, extract_frame_sequence
+from .frame_manipulation.thumbnail_generator import extract_thumbnails, generate_smart_thumbnails, create_thumbnail_grid
+from .frame_manipulation.reverse_video import reverse_video, reverse_video_section, create_boomerang_effect, reverse_with_speed_ramp
+
+# Phase 2A: Video restoration
+from .video_restoration.denoise_enhance import denoise_video, denoise_video_advanced, batch_denoise_videos
+
+# Phase 2B: Layout & Composition
+from .layout_composition.split_screen import create_split_screen, create_video_grid
+from .layout_composition.crop_resize import crop_video, create_timelapse, create_slow_motion
+
+# Phase 2C: Quality & Enhancement
+from .quality_enhancement.upscale_enhance import upscale_video, color_correction, auto_enhance_video
+from .quality_enhancement.stabilize_cleanup import stabilize_shaky_video, remove_background, batch_enhance_videos
+
+# Phase 2D: Advanced Features
+from .advanced_features.slideshow_gif import create_slideshow, create_gif_from_video, batch_process_videos
+from .advanced_features.motion_effects import add_motion_blur, create_360_video, create_cinemagraph
+
+# Phase 3A: AI Transcription
+from .ai_transcription.whisper_transcription import transcribe_audio_whisper, transcribe_video_whisper, batch_transcribe_videos, create_styled_subtitles
+
+# Phase 3B: Computer Vision
+from .computer_vision.object_detection import detect_objects_yolo, generate_smart_thumbnails_ai, auto_crop_to_subject
+
+# Phase 3C: YouTube Optimization
+from .youtube_optimization.content_analyzer import detect_scene_changes, generate_youtube_chapters, analyze_content_density, extract_youtube_shorts
+
 ALL_TOOLS = [
     extract_audio_from_video,
     convert_audio_properties,
@@ -107,4 +140,62 @@ ALL_TOOLS = [
     create_spatial_audio,
     create_3d_audio_scene,
     convert_to_spatial_format,
+    # Phase 2A: Video manipulation
+    rotate_video,
+    flip_mirror_video,
+    rotate_and_flip_video,
+    auto_rotate_video,
+    create_picture_in_picture,
+    create_multi_pip,
+    create_animated_pip,
+    # Phase 2A: Frame manipulation
+    extract_frames,
+    extract_frame_at_time,
+    extract_frames_batch,
+    extract_frame_sequence,
+    extract_thumbnails,
+    generate_smart_thumbnails,
+    create_thumbnail_grid,
+    reverse_video,
+    reverse_video_section,
+    create_boomerang_effect,
+    reverse_with_speed_ramp,
+    # Phase 2A: Video restoration
+    denoise_video,
+    denoise_video_advanced,
+    batch_denoise_videos,
+    # Phase 2B: Layout & Composition
+    create_split_screen,
+    create_video_grid,
+    crop_video,
+    create_timelapse,
+    create_slow_motion,
+    # Phase 2C: Quality & Enhancement
+    upscale_video,
+    color_correction,
+    auto_enhance_video,
+    stabilize_shaky_video,
+    remove_background,
+    batch_enhance_videos,
+    # Phase 2D: Advanced Features
+    create_slideshow,
+    create_gif_from_video,
+    batch_process_videos,
+    add_motion_blur,
+    create_360_video,
+    create_cinemagraph,
+    # Phase 3A: AI Transcription
+    transcribe_audio_whisper,
+    transcribe_video_whisper,
+    batch_transcribe_videos,
+    create_styled_subtitles,
+    # Phase 3B: Computer Vision
+    detect_objects_yolo,
+    generate_smart_thumbnails_ai,
+    auto_crop_to_subject,
+    # Phase 3C: YouTube Optimization
+    detect_scene_changes,
+    generate_youtube_chapters,
+    analyze_content_density,
+    extract_youtube_shorts,
 ]

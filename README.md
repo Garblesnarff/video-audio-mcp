@@ -4,7 +4,7 @@
 
 # 🎬 Video & Audio Editing MCP Server
 
-A comprehensive Model Context Protocol (MCP) server that provides powerful video and audio editing capabilities through FFmpeg. This server enables AI assistants to perform professional-grade video editing operations including format conversion, trimming, overlays, transitions, and advanced audio processing.
+A comprehensive Model Context Protocol (MCP) server that provides powerful video and audio editing capabilities through FFmpeg. This server enables AI assistants to perform professional-grade video editing operations with **104 specialized tools** covering format conversion, trimming, overlays, transitions, advanced audio processing, AI-powered transcription, computer vision, and cutting-edge features like 360° video, object detection, and automated YouTube optimization.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -90,6 +90,73 @@ A comprehensive Model Context Protocol (MCP) server that provides powerful video
 - `create_3d_audio_scene` - Complex 3D audio scenes with multiple positioned sources
 - `convert_to_spatial_format` - Convert between spatial audio formats
 
+### 🔄 Video Manipulation (Phase 2A - NEW!)
+- `rotate_video` - Rotate videos by any angle with smart fill options
+- `flip_mirror_video` - Horizontal/vertical flip and mirror effects
+- `rotate_and_flip_video` - Combined rotation and flipping operations
+- `auto_rotate_video` - Automatically correct video orientation from metadata
+- `create_picture_in_picture` - Advanced PiP with animations and positioning
+- `create_multi_pip` - Multiple overlay support with layout presets
+- `create_animated_pip` - Animated PiP with predefined motion presets
+
+### 🎞️ Frame & Time Manipulation (Phase 2A - NEW!)
+- `extract_frames` - Extract frames at intervals, keyframes, or scene changes
+- `extract_frame_at_time` - Extract single frame at specific timestamp
+- `extract_frames_batch` - Batch frame extraction from multiple videos
+- `extract_frame_sequence` - Extract specific frame ranges by number
+- `extract_thumbnails` - Smart thumbnail generation with multiple methods
+- `generate_smart_thumbnails` - AI-powered thumbnail selection
+- `create_thumbnail_grid` - Create mosaic grids from thumbnails
+- `reverse_video` - Reverse video with memory management for large files
+- `reverse_video_section` - Reverse specific sections while keeping rest normal
+- `create_boomerang_effect` - Forward-backward looping effect
+- `reverse_with_speed_ramp` - Reverse with speed ramping effects
+
+### 🔧 Video Restoration (Phase 2A - NEW!)
+- `denoise_video` - Advanced denoising with multiple algorithms (nlmeans, hqdn3d, etc.)
+- `denoise_video_advanced` - Automatic noise profiling and grain preservation
+- `batch_denoise_videos` - Batch processing for multiple videos
+
+### 📐 Layout & Composition (Phase 2B - NEW!)
+- `create_split_screen` - Split-screen layouts with 2-4 videos (horizontal, vertical, quad)
+- `create_video_grid` - Mosaic grid layouts with automatic sizing and custom arrangements
+- `crop_video` - Intelligent cropping with presets and aspect ratio targeting
+- `create_timelapse` - High-quality timelapse with motion interpolation
+- `create_slow_motion` - Advanced slow motion with frame interpolation
+
+### ✨ Quality & Enhancement (Phase 2C - NEW!)
+- `upscale_video` - AI-enhanced upscaling with multiple algorithms (Lanczos, bicubic, etc.)
+- `color_correction` - Professional color grading (auto, warm, cool, vintage, vibrant)
+- `auto_enhance_video` - One-click enhancement with multiple quality improvements
+- `stabilize_shaky_video` - Advanced stabilization using vidstab and robust algorithms
+- `remove_background` - Background removal with chroma key and color range methods
+- `batch_enhance_videos` - Batch processing for quality improvements
+
+### 🚀 Advanced Features (Phase 2D - NEW!)
+- `create_slideshow` - Professional slideshows with transitions and background music
+- `create_gif_from_video` - Optimized GIF creation with palette optimization
+- `batch_process_videos` - Parallel batch processing for multiple operations
+- `add_motion_blur` - Realistic motion blur effects with directional control
+- `create_360_video` - 360-degree video processing with multiple projections
+- `create_cinemagraph` - Living photos with selective motion areas
+
+### 🤖 AI Transcription (Phase 3A - NEW!)
+- `transcribe_audio_whisper` - AI-powered speech-to-text using OpenAI Whisper (faster-whisper support)
+- `transcribe_video_whisper` - Extract and transcribe audio from video with timestamps
+- `batch_transcribe_videos` - Batch transcription for multiple videos with concurrent processing
+- `create_styled_subtitles` - Generate and burn stylized subtitles from transcriptions
+
+### 👁️ Computer Vision (Phase 3B - NEW!)
+- `detect_objects_yolo` - Real-time object detection using YOLOv8 with bounding box visualization
+- `generate_smart_thumbnails_ai` - AI-powered thumbnail generation based on visual content analysis
+- `auto_crop_to_subject` - Intelligent auto-cropping to focus on detected subjects with smooth tracking
+
+### 📺 YouTube Optimization (Phase 3C - NEW!)
+- `detect_scene_changes` - Automatic scene change detection for chapter generation
+- `generate_youtube_chapters` - Create YouTube chapters from scene analysis and transcriptions
+- `analyze_content_density` - Identify high-action segments and visual complexity patterns
+- `extract_youtube_shorts` - Auto-extract engaging Short-form content with AI analysis
+
 ## 🚀 Quick Start
 
 ### Prerequisites (local installation)
@@ -117,12 +184,29 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 git clone https://github.com/misbahsy/video-audio-mcp.git
 cd video-audio-mcp
 
-# Install dependencies with uv
+# Install core dependencies with uv
 uv sync
 
 # Verify FFmpeg installation
 ffmpeg -version
 ```
+
+#### Option 3: AI Features Installation (Phase 3)
+
+For advanced AI features (transcription, computer vision, YouTube optimization):
+
+```bash
+# Install AI dependencies (optional but recommended)
+pip install -r requirements-ai.txt
+
+# Or install specific AI packages as needed:
+pip install faster-whisper  # For AI transcription (4x faster than openai-whisper)
+pip install ultralytics     # For YOLO object detection
+pip install opencv-python   # For computer vision features
+pip install mediapipe       # For pose/face detection (optional)
+```
+
+**Note**: AI features will gracefully fall back with helpful error messages if dependencies are missing. Install only what you need!
 
 
 ### Running the Server
@@ -314,6 +398,184 @@ For easier distribution, you can also run via npx if packaged:
 → Uses: create_audio_visualization with waveform type
 ```
 
+### 🔄 Video Manipulation Examples (Phase 2A)
+
+```
+"Rotate this video 90 degrees clockwise and flip it horizontally"
+→ Uses: rotate_and_flip_video
+
+"Fix the orientation of this phone video automatically"
+→ Uses: auto_rotate_video  
+
+"Create picture-in-picture with the speaker in bottom right corner"
+→ Uses: create_picture_in_picture
+
+"Add multiple talking heads in each corner of the screen"
+→ Uses: create_multi_pip with corners layout
+
+"Mirror this video vertically to create a reflection effect"
+→ Uses: flip_mirror_video with vertical option
+```
+
+### 🎞️ Frame & Time Examples (Phase 2A)
+
+```
+"Extract one frame every 5 seconds from this video"
+→ Uses: extract_frames with interval mode
+
+"Generate 10 smart thumbnails showing the best moments"
+→ Uses: generate_smart_thumbnails with scene analysis
+
+"Create a thumbnail grid showing video highlights"
+→ Uses: create_thumbnail_grid from extracted thumbnails
+
+"Reverse this video to create a rewind effect"
+→ Uses: reverse_video
+
+"Make a boomerang loop that plays forward then backward 3 times"
+→ Uses: create_boomerang_effect
+
+"Extract frames 100-200 as individual images"
+→ Uses: extract_frame_sequence
+```
+
+### 🔧 Video Restoration Examples (Phase 2A)
+
+```
+"Remove noise from this old film footage while preserving grain"
+→ Uses: denoise_video_advanced with film_grain profile
+
+"Clean up digital camera noise from this low-light video"
+→ Uses: denoise_video with nlmeans method
+
+"Batch process these 50 videos to remove compression artifacts"
+→ Uses: batch_denoise_videos with compression_artifacts profile
+```
+
+### 📐 Layout & Composition Examples (Phase 2B)
+
+```
+"Create a split-screen comparison with these two videos side by side"
+→ Uses: create_split_screen with horizontal layout
+
+"Make a 2x2 grid showing all four camera angles simultaneously"
+→ Uses: create_video_grid with quad layout
+
+"Crop this video to focus on the center subject in a square format"
+→ Uses: crop_video with center_square preset
+
+"Create a 10x speed timelapse of this construction footage"
+→ Uses: create_timelapse with speed_factor=10
+
+"Make slow motion of this action sequence at quarter speed"
+→ Uses: create_slow_motion with slow_factor=4 and optical flow interpolation
+```
+
+### ✨ Quality & Enhancement Examples (Phase 2C)
+
+```
+"Upscale this 720p video to 4K resolution with AI enhancement"
+→ Uses: upscale_video with target_resolution="3840x2160" and enhance_quality=True
+
+"Apply warm color grading to give this video a cozy feeling"
+→ Uses: color_correction with correction_type="warm"
+
+"Automatically enhance this video quality - it looks dull and shaky"
+→ Uses: auto_enhance_video with enhancement_level="medium" and stabilize=True
+
+"Fix the camera shake in this handheld footage"
+→ Uses: stabilize_shaky_video with vidstab method
+
+"Remove the green screen and replace with this beach background"
+→ Uses: remove_background with method="chroma" and replacement_background
+
+"Enhance all videos in this folder with consistent settings"
+→ Uses: batch_enhance_videos with custom enhancement settings
+```
+
+### 🚀 Advanced Features Examples (Phase 2D)
+
+```
+"Create a slideshow from these vacation photos with fade transitions"
+→ Uses: create_slideshow with transition_type="fade" and background music
+
+"Convert this 10-second video clip into an optimized GIF"
+→ Uses: create_gif_from_video with palette optimization
+
+"Process all videos in this directory to convert them to WebM format"
+→ Uses: batch_process_videos with operation="convert" and format="webm"
+
+"Add motion blur to simulate fast camera movement in this action scene"
+→ Uses: add_motion_blur with blur_amount=3.0 and motion_detection=True
+
+"Convert this 360 camera footage to proper equirectangular format"
+→ Uses: create_360_video with input_format="dual_fisheye"
+
+"Create a cinemagraph where only the waterfall moves"
+→ Uses: create_cinemagraph with motion_area focused on waterfall region
+```
+
+### 🤖 AI Transcription Examples (Phase 3A)
+
+```
+"Transcribe this podcast episode and generate SRT subtitles"
+→ Uses: transcribe_video_whisper with output_format="srt"
+
+"Generate captions for my YouTube video in multiple languages"
+→ Uses: transcribe_audio_whisper with language="auto" for detection, then translate
+
+"Batch transcribe all videos in my course directory"
+→ Uses: batch_transcribe_videos with JSON output for timestamps
+
+"Create styled subtitles and burn them into the video"
+→ Uses: create_styled_subtitles with custom font, color, and positioning
+```
+
+### 👁️ Computer Vision Examples (Phase 3B)
+
+```
+"Detect all people and objects in this video and draw bounding boxes"
+→ Uses: detect_objects_yolo with draw_boxes=True and target_classes=["person"]
+
+"Generate 5 smart thumbnails from my video showing the most interesting moments"
+→ Uses: generate_smart_thumbnails_ai with focus_on_objects=True
+
+"Auto-crop this video to always keep the speaker in frame"
+→ Uses: auto_crop_to_subject with target_class="person" and smooth_tracking=True
+
+"Find all the cars in this traffic video and export detection data"
+→ Uses: detect_objects_yolo with target_classes=["car"] and output_json path
+```
+
+### 📺 YouTube Optimization Examples (Phase 3C)
+
+```
+"Analyze this video and automatically generate YouTube chapters"
+→ Uses: detect_scene_changes + generate_youtube_chapters with transcription integration
+
+"Find the most engaging 60-second clips for YouTube Shorts"
+→ Uses: extract_youtube_shorts with use_content_analysis=True
+
+"Analyze which parts of my video have the most action for highlights"
+→ Uses: analyze_content_density with detailed motion and complexity scoring
+
+"Create chapters based on my video's transcription and scene changes"
+→ Uses: generate_youtube_chapters with both scene_data and transcription_path
+```
+
+### 🔗 Integrated Workflow Examples (YouTube Creator Pipeline)
+
+```
+"Complete YouTube workflow: transcribe, generate chapters, create Shorts, and thumbnails"
+→ Uses: transcribe_video_whisper → generate_youtube_chapters → extract_youtube_shorts → generate_smart_thumbnails_ai
+
+"Optimize my video for accessibility: add subtitles and chapters"
+→ Uses: transcribe_video_whisper → create_styled_subtitles → generate_youtube_chapters
+
+"Content analysis pipeline: detect objects, analyze density, extract highlights"
+→ Uses: detect_objects_yolo → analyze_content_density → extract_youtube_shorts
+```
+
 ### Professional Workflows
 
 ```
@@ -450,7 +712,7 @@ This project includes a comprehensive test suite that validates all video and au
 
 The test suite covers:
 
-- **✅ Core Functions**: All 30+ video/audio editing tools
+- **✅ Core Functions**: All 104 video/audio editing and AI tools
 - **🎬 Video Operations**: Format conversion, trimming, resolution changes, codec switching
 - **🎵 Audio Processing**: Bitrate adjustment, sample rate changes, channel configuration
 - **🎨 Creative Tools**: Text overlays, image watermarks, subtitle burning
